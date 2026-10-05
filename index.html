@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf4ff">
+  <meta name="description" content="Check current weather conditions for any city.">
+  <title>Weather</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Weather home">
+        <span class="brand-mark" aria-hidden="true">☀</span>
+        <span>weather</span>
+      </a>
+      <span class="live-label"><span class="live-dot"></span> LIVE WEATHER</span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">YOUR LOCAL FORECAST</p>
+      <h1 id="page-title">Weather, <span>wherever you are.</span></h1>
+    </section>
+
+    <section class="weather-panel" aria-label="Current weather">
+      <form class="search-form" id="search-form" role="search">
+        <label class="visually-hidden" for="city-input">Enter a city</label>
+        <span class="search-icon" aria-hidden="true">⌕</span>
+        <input
+          id="city-input"
+          name="city"
+          type="search"
+          placeholder="Search for a city..."
+          autocomplete="off"
+          required
+        >
+        <button type="submit" id="search-button">
+          <span>Get weather</span>
+          <span aria-hidden="true">→</span>
+        </button>
+      </form>
+
+      <p class="status-message" id="status-message" role="status" aria-live="polite">
+        Search for a city to see its current weather.
+      </p>
+
+      <article class="weather-card" id="weather-card" hidden aria-live="polite">
+        <div class="weather-heading">
+          <div>
+            <p class="eyebrow card-eyebrow">CURRENT CONDITIONS</p>
+            <h2 id="location-name"></h2>
+            <p class="local-time" id="local-time"></p>
+          </div>
+          <div class="weather-icon" id="weather-icon" aria-hidden="true"></div>
+        </div>
+
+        <div class="temperature-row">
+          <p class="temperature"><span id="temperature"></span><span class="degree">°</span></p>
+          <div class="condition">
+            <p id="condition-name"></p>
+            <span>Feels like <span id="feels-like"></span>°</span>
+          </div>
+        </div>
+
+        <div class="weather-details">
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">💧</span>
+            <div><span class="detail-label">Humidity</span><strong><span id="humidity"></span>%</strong></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">↗</span>
+            <div><span class="detail-label">Wind speed</span><strong><span id="wind-speed"></span> <small id="wind-unit"></small></strong></div>
+          </div>
+          <div class="detail">
+            <span class="detail-icon" aria-hidden="true">☂</span>
+            <div><span class="detail-label">Precipitation</span><strong><span id="precipitation"></span> mm</strong></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noreferrer">Open-Meteo</a></footer>
+  </main>
+</body>
+</html>
